@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :signed_in_user, only: [:edit, :update]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user, only: :destroy
+  before_action :has_account, only: [:new, :create]
 
   def index
     @users = User.order('name ASC').paginate(page: params[:page])
@@ -9,10 +10,12 @@ class UsersController < ApplicationController
 
   def new
   	@user = User.new
+    redirect_to root_url if signed_in?
   end
 
   def show
   	@user = User.find(params[:id])
+    @wines = @user.wines.paginate(page: params[:page])
   end
 
   def create
@@ -54,10 +57,6 @@ class UsersController < ApplicationController
   # Before filters
 
   def signed_in_user
-    redirect_to signin_url, notice: "Please sign in." unless signed_in?
-  end
-
-  def signed_in_user
     unless signed_in?
       store_location
       redirect_to signin_url, notice: "Please sign in."
@@ -70,6 +69,14 @@ class UsersController < ApplicationController
   end
 
   def admin_user
-      redirect_to(root_url) unless current_user.admin?
+      redirect_to(users_url) unless current_user.admin?
+      redirect_to(users_url) if User.find(params[:id]) == current_user
+  end
+
+  def has_account
+    if signed_in?
+      redirect_to(root_url)
+      flash[:warning] = "You already have an account and are signed in!"
+    end
   end
 end

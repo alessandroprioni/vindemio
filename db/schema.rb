@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130902200826) do
+ActiveRecord::Schema.define(version: 20130907193046) do
+
+  create_table "appearance_clarities", force: true do |t|
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "appearance_intensities", force: true do |t|
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -25,5 +37,24 @@ ActiveRecord::Schema.define(version: 20130902200826) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
+
+  create_table "wines", force: true do |t|
+    t.string   "name"
+    t.integer  "vintage"
+    t.text     "grapes"
+    t.integer  "alcohol"
+    t.string   "producer"
+    t.string   "country"
+    t.string   "region"
+    t.float    "temperature"
+    t.float    "price"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "appearance_intensity_id"
+    t.integer  "appearance_clarity_id"
+  end
+
+  add_index "wines", ["user_id", "created_at"], name: "index_wines_on_user_id_and_created_at"
 
 end

@@ -7,4 +7,14 @@
       </h1>
     </section>
   </aside>
+  <div class="span8">
+    <% if @user.wines.any? %>
+      <h3>Wines (<%= @user.wines.count %>)</h3>
+      <ol class="wines">
+        <%= render @wines %>
+      </ol>
+      <%= will_paginate @wines, renderer: BootstrapPagination::Rails,
+      														bootstrap: 3 %>
+    <% end %>
+  </div>
 </div>

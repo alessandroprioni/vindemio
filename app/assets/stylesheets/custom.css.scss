@@ -36,6 +36,15 @@ textarea {
   margin-right: 0;
 }
 
+ul {
+  padding-left: 0;
+  margin-right: 0;
+}
+
+.pagination > li > a, .pagination > li > span {
+  padding: 5px 10px;
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
