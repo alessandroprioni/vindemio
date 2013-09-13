@@ -14,6 +14,6 @@ class CreateWines < ActiveRecord::Migration
 
       t.timestamps
     end
-    add index :wines, [:user_id, :created_at]
+    add_index :wines, [:user_id, :created_at]
   end
 end
