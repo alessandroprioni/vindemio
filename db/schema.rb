@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130913104038) do
+ActiveRecord::Schema.define(version: 20130913105609) do
 
   create_table "appearance_clarities", force: true do |t|
     t.string   "name"
@@ -153,7 +153,6 @@ ActiveRecord::Schema.define(version: 20130913104038) do
     t.integer  "appearance_intensity_id"
     t.integer  "nose_condition_id"
     t.integer  "nose_intensity_id"
-    t.text     "nose_aroma"
     t.integer  "nose_development_id"
     t.integer  "palate_sweetness_id"
     t.integer  "palate_acidity_id"
@@ -173,6 +172,7 @@ ActiveRecord::Schema.define(version: 20130913104038) do
     t.text     "palate_tannin_nature"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "nose_aroma"
   end
 
   add_index "wines", ["user_id", "created_at"], name: "index_wines_on_user_id_and_created_at"
