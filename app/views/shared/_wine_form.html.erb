@@ -58,7 +58,7 @@
     <%= f.text_area :palate_flavchar, placeholder: "e.g. fruits, flowers, spices, vegetables, oak flavours, other" %>
     <%= f.label :palate_observation, "Observations", class: "wine-attribute" %>
     <%= f.text_area :palate_observation, placeholder: "e.g. texture, balance | sparkling wines (mousse): delicate – creamy – aggressive" %>
-    <%= f.label :appearance_clarity_id, "Clarity", class: "wine-attribute" %>
+    <%= f.label :appearance_finish_id, "Finish", class: "wine-attribute" %>
     <%= collection_select(:wine, :palate_finish_id, PalateFinish.all, :id, :name) %>
 
     <p class="wine-section">conclusions</p>
