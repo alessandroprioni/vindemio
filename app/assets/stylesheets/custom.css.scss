@@ -1,6 +1,7 @@
 @import "twitter/bootstrap";
 
 $grayMediumLight: #eaeaea;
+$grayLight: #999;
 $grayLighter: #eee;
 
 @mixin box_sizing {
@@ -177,4 +178,39 @@ input {
       border-bottom: 1px solid $grayLighter;
     }
   }
+}
+
+/* wines */
+
+.wines {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.name {
+  display: block;
+}
+.timestamp {
+  color: $grayLight;
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+.wine-section {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 2em 0 1em;
+}
+
+label.wine-attribute {
+  font-weight: normal;
 }

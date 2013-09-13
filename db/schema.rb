@@ -11,16 +11,113 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130907193046) do
+ActiveRecord::Schema.define(version: 20130913093938) do
 
   create_table "appearance_clarities", force: true do |t|
-    t.string   "value"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "appearance_colour_details", force: true do |t|
+    t.string   "name"
+    t.integer  "appearance_colour_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "appearance_colours", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "appearance_intensities", force: true do |t|
-    t.string   "value"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "conclusion_prices", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "conclusion_qualities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "conclusion_readinesses", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", force: true do |t|
+    t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "nose_conditions", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "nose_developments", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "nose_intensities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "palate_acidities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "palate_alcohols", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "palate_bodies", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "palate_finishes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "palate_flavintensities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "palate_sweetnesses", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "palate_tannins", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,20 +136,43 @@ ActiveRecord::Schema.define(version: 20130907193046) do
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
   create_table "wines", force: true do |t|
+    t.integer  "user_id"
     t.string   "name"
     t.integer  "vintage"
-    t.text     "grapes"
-    t.integer  "alcohol"
+    t.string   "grapes"
+    t.float    "alcohol"
     t.string   "producer"
-    t.string   "country"
+    t.integer  "country_id"
     t.string   "region"
-    t.float    "temperature"
+    t.integer  "temperature"
     t.float    "price"
-    t.integer  "user_id"
+    t.integer  "appearance_colour_id"
+    t.integer  "appearance_colour_detail_id"
+    t.text     "appearance_observation"
+    t.integer  "appearance_clarity_id"
+    t.integer  "appearance_intensity_id"
+    t.integer  "nose_condition_id"
+    t.integer  "nose_intensity_id"
+    t.text     "nose_aroma"
+    t.integer  "nose_development_id"
+    t.integer  "palate_sweetness_id"
+    t.integer  "palate_acidity_id"
+    t.integer  "palate_tannin_id"
+    t.integer  "palate_alcohol_id"
+    t.integer  "palate_body_id"
+    t.integer  "palate_flavintensity_id"
+    t.text     "palate_flavchar"
+    t.text     "palate_observation"
+    t.integer  "palate_finish_id"
+    t.integer  "conclusion_quality_id"
+    t.text     "conclusion_quality_reason"
+    t.integer  "conclusion_readiness_id"
+    t.text     "conclusion_readiness_reason"
+    t.text     "conclusion_details"
+    t.integer  "conclusion_price_id"
+    t.text     "palate_tannin_nature"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "appearance_intensity_id"
-    t.integer  "appearance_clarity_id"
   end
 
   add_index "wines", ["user_id", "created_at"], name: "index_wines_on_user_id_and_created_at"
