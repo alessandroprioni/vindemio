@@ -175,6 +175,6 @@ ActiveRecord::Schema.define(version: 20130913093938) do
     t.datetime "updated_at"
   end
 
-  add_index "wines", ["user_id", "created_at"], name: "index_wines_on_user_id_and_created_at"
+  
 
 end
