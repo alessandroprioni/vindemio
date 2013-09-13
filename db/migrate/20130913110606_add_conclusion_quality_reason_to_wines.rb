@@ -1,5 +1,5 @@
 class AddConclusionQualityReasonToWines < ActiveRecord::Migration
   def change
-    add_column :wines, :quality_reason, :text
+    add_column :wines, :conclusion_quality_reason, :text
   end
 end

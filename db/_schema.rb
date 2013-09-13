@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130913110606) do
+ActiveRecord::Schema.define(version: 20130913105609) do
 
   create_table "appearance_clarities", force: true do |t|
     t.string   "name"
@@ -146,8 +146,6 @@ ActiveRecord::Schema.define(version: 20130913110606) do
     t.string   "region"
     t.integer  "temperature"
     t.float    "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "appearance_colour_id"
     t.integer  "appearance_colour_detail_id"
     t.text     "appearance_observation"
@@ -166,14 +164,15 @@ ActiveRecord::Schema.define(version: 20130913110606) do
     t.text     "palate_observation"
     t.integer  "palate_finish_id"
     t.integer  "conclusion_quality_id"
-    t.text     "quality_reason"
+    t.text     "conclusion_quality_reason"
     t.integer  "conclusion_readiness_id"
     t.text     "conclusion_readiness_reason"
     t.text     "conclusion_details"
     t.integer  "conclusion_price_id"
     t.text     "palate_tannin_nature"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text     "nose_aroma"
-    t.text     "conclusion_quality_reason"
   end
 
   add_index "wines", ["user_id", "created_at"], name: "index_wines_on_user_id_and_created_at"
