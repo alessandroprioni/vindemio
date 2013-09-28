@@ -1,9 +1,13 @@
-<h1>
-  <%= current_user.name %>
-</h1>
-<span>
-  <%= link_to "view my profile", current_user %>
-</span>
-<span>
-  <%= pluralize(current_user.wines.count, "wine") %>
-</span>
+<div class="row">
+  <div class="large-8 large-offset-2 columns">
+		<h1>
+		  <%= current_user.name %>
+		</h1>
+		<span>
+		  <%= link_to "view my profile", current_user %>
+		</span>
+		<span>
+		  <%= pluralize(current_user.wines.count, "wine") %>
+		</span>
+	</div>
+</div>
