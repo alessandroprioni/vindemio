@@ -69,7 +69,7 @@ class UsersController < ApplicationController
   def has_account
     if signed_in?
       redirect_to(root_url)
-      flash[:warning] = "You already have an account and are signed in!"
+      flash[:alert] = "You already have an account and are signed in!"
     end
   end
 end

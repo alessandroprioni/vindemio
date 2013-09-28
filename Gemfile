@@ -2,12 +2,11 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '4.0.0'
-gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
-										:github => 'anjlab/bootstrap-rails'
+gem "compass-rails", "~> 2.0.alpha.0"
+gem 'zurb-foundation', '4.3.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.4'
-gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'sqlite3', '1.3.7'

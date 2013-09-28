@@ -13,8 +13,10 @@
       <ol class="wines">
         <%= render @wines %>
       </ol>
+
+      <% if false %>
       <%= will_paginate @wines, renderer: BootstrapPagination::Rails,
-      														bootstrap: 3 %>
+      														bootstrap: 3 %><%end%>
     <% end %>
   </div>
 </div>

@@ -1,44 +1,51 @@
-<header class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div class="navbar-header">
-	<button type="button" class="navbar-toggle" data-toggle="collapse"
-										data-target=".navbar-ex1-collapse">
-	  <span class="sr-only">Toggle navigation</span>
-	  <span class="icon-bar"></span>
-	  <span class="icon-bar"></span>
-	  <span class="icon-bar"></span>
-	</button>
-	<%= link_to "vindemio", root_path, id: "logo", class: "navbar-brand" %>
-	</div>
-
-	<!-- Collect the nav links, forms, and other content for toggling -->
-	<div class="collapse navbar-collapse navbar-ex1-collapse">
-	<ul class="nav navbar-nav navbar-right">
-		<li class="<%= "active" if current_page?(root_path) %>">
-										<%= link_to "Home", root_path %></li>
-	    <li class="<%= "active" if current_page?(help_path) %>">
-	    								<%= link_to "Help", help_path %></li>
-	    <% if signed_in? %>
-            <li class="<%= "active" if current_page?(users_path) %>">
-                									<%= link_to "Users", users_path %></li>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li class="<%= "active" if current_page?(current_user) %>">
-                									<%= link_to "Profile", current_user %></li>
-                <li class="<%= "active" if current_page?(edit_user_path(current_user)) %>">
-                	<%= link_to "Settings", edit_user_path(current_user) %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "Sign out", signout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>
-          <% else %>
-            <li class="<%= "active" if current_page?(signin_path) %>">
-            						<%= link_to "Sign in", signin_path %></li>
-          <% end %>
-	</ul>
-	</div><!-- /.navbar-collapse -->
-</header>
+<div class="fixed">
+  <nav class="top-bar" role="navigation">
+    <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+        <h1>
+          <a href="/">
+            VINDEMIO
+          </a>
+        </h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+    </ul>
+ 
+    <section class="top-bar-section">
+      <!-- Right Nav Section -->
+      <ul class="right">
+        <li class="divider"></li>
+        <li class="<%= "active" if current_page?(root_path) %>">
+                                        <%= link_to "Home", root_path %></li>
+        <li class="divider"></li>
+        <li class="<%= "active" if current_page?(help_path) %>">
+                                        <%= link_to "Help", help_path %></li>
+        
+        <% if signed_in? %>
+          <li class="divider"></li>
+          <li class="<%= "active" if current_page?(users_path) %>">
+                                      <%= link_to "Users", users_path %></li>
+          <li class="divider"></li>
+          <li class="has-dropdown">
+            <a href="#">Account</a>
+            <ul class="dropdown">
+              <li class="<%= "active" if current_page?(current_user) %>">
+                                  <%= link_to "Profile", current_user %></li>
+              <li class="<%= "active" if current_page?(edit_user_path(current_user)) %>">
+                  <%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Sign out", signout_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li class="divider"></li>
+          <li class="<%= "active" if current_page?(signin_path) %>">
+                                    <%= link_to "Sign in", signin_path %></li>
+        <% end %>
+      </ul>
+    </section>
+  </nav>
+</div>
