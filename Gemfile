@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
+gem 'sass-rails', '4.0.0'
 gem 'rails', '4.0.0'
 gem "compass-rails", "~> 2.0.alpha.0"
 gem 'zurb-foundation', '4.3.1'
@@ -18,7 +19,6 @@ group :test do
   gem 'capybara', '2.1.0'
 end
 
-gem 'sass-rails', '4.0.0'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.0'
 gem 'jquery-rails', '2.2.1'
